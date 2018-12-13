@@ -1,1 +1,1 @@
-include ':app', ':hibiscusauth'
+include ':app', ':hibiscusauth', ':mysingleton'
