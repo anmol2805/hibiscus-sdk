@@ -10,7 +10,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HibiscusLogin {
-    public static void logInWithUserCredentials(String student_id, String password, Context context){
+    public void logInWithUserCredentials(String student_id,
+                                         String password,
+                                         Context context,
+                                         Response.Listener<JSONObject> listener,
+                                         Response.ErrorListener errlsn
+                                         ){
         JSONObject credentials = new JSONObject();
         try {
             credentials.put("uid",student_id);
@@ -18,18 +23,9 @@ public class HibiscusLogin {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.POST, "http://14.139.198.171/api/hibi/login_test", credentials, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                System.out.println("response:" + response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("response:" + error);
-            }
-        });
+        JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.POST,
+                "http://14.139.198.171/api/hibi/login_test",
+                credentials, listener, errlsn);
         Mysingleton.getInstance(context).addToRequestqueue(loginRequest);
-
     }
 }

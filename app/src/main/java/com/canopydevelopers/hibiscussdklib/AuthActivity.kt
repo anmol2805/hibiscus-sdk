@@ -9,6 +9,12 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-        HibiscusLogin.logInWithUserCredentials("b516008","anmol@2805",this)
+        val hib = HibiscusLogin()
+        hib.logInWithUserCredentials("b516008","anmol@2805",this, {response ->
+            val result = response.getString("result")
+            System.out.println("response:$result")
+        }, {error ->
+            System.out.println("response:$error")
+        })
     }
 }
