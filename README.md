@@ -49,3 +49,26 @@ val hib = HibiscusLogin()
             System.out.println("response:$error")
         })
 ```
+
+### For some devices operating on android P or API level 28:
+
+1.Create a new xml file in your *app->res->xml->network_security_config.xml*
+
+Add this following code:
+
+  ```xml
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">14.139.198.171</domain>
+    </domain-config>
+</network-security-config>       
+```
+
+2.Now in your manifest file add this line:
+
+  ```xml
+<application>
+    ...
+    android:networkSecurityConfig="@xml/network_security_config"
+</application>       
+```
