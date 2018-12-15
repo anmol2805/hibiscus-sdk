@@ -50,7 +50,7 @@ val hib = HibiscusLogin()
         })
 ```
 
-### For some devices operating on android P or API level 28:
+### For some devices operating on android P or API level 28(optional):
 
 1.Create a new xml file in your *app->res->xml->network_security_config.xml*
 
