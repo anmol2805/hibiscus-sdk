@@ -10,7 +10,7 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         val hib = HibiscusLogin()
-        hib.logInWithUserCredentials("student_id","password",this, {response ->
+        hib.logInWithUserCredentials("b516008","anmol@2805",this, {response ->
             val result = response.getString("result")
             System.out.println("response:$result")
         }, {error ->
