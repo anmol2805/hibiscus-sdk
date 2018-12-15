@@ -1,2 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.canopydevelopers.hibiscusauth"/>
+          package="com.canopydevelopers.hibiscusauth">
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+    />
+</manifest>
